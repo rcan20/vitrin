@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ویترین | فروشگاه لوازم دیجیتال (نسخه نمایشی)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap">
+<style>
+:root{--bg:#f7f6fc;--surface:#fff;--ink:#16132e;--muted:#68648b;--brand:#6d4aff;--pop:#ff7a59;--line:#e6e3f5;--chip:#efecff;--a:90%;--b:80%;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0c22;--surface:#18153a;--ink:#efedff;--muted:#aaa6d4;--brand:#9d86ff;--pop:#ff8f70;--line:#2c2860;--chip:#242052;--a:30%;--b:22%}}
+:root[data-theme="dark"]{--bg:#0e0c22;--surface:#18153a;--ink:#efedff;--muted:#aaa6d4;--brand:#9d86ff;--pop:#ff8f70;--line:#2c2860;--chip:#242052;--a:30%;--b:22%}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.7}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:12px;padding:10px 0}
+.logo{font-weight:900;font-size:1.5rem;background:linear-gradient(90deg,var(--brand),var(--pop));-webkit-background-clip:text;background-clip:text;color:transparent}
+#q{flex:1;min-width:0;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.cartbtn{position:relative;border:0;border-radius:999px;background:var(--brand);color:var(--bg);padding:8px 18px;font-weight:700}
+.cartbtn b{position:absolute;top:-6px;inset-inline-start:-6px;min-width:22px;height:22px;border-radius:11px;background:var(--pop);color:#fff;font-size:.75rem;display:grid;place-items:center}
+.hero{margin:24px 0;border-radius:24px;padding:40px 28px;color:#fff;background:radial-gradient(circle at 15% 20%,#ff7a59,transparent 45%),linear-gradient(135deg,#4b2fe0,#8f5bff)}
+.hero h1{margin:0 0 8px;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;line-height:1.35}
+.hero p{margin:0;max-width:46ch;opacity:.92}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 16px}
+.chip[aria-pressed=true]{background:var(--brand);color:var(--bg);border-color:var(--brand)}
+#sort{margin-inline-start:auto;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding-bottom:56px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px var(--brand)}
+.art{position:relative;height:150px;display:grid;place-items:center;font-size:4.2rem;background:linear-gradient(135deg,hsl(var(--h) 85% var(--a)),hsl(calc(var(--h) + 35) 85% var(--b)))}
+.off{position:absolute;top:10px;inset-inline-start:10px;background:var(--pop);color:#fff;border-radius:999px;font-size:.78rem;font-weight:700;padding:0 10px}
+.body{padding:14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.body h3{margin:0;font-size:1rem}
+.body p{margin:0;color:var(--muted);font-size:.85rem}
+.price{margin-top:auto;padding-top:8px;font-weight:900}
+.price s{color:var(--muted);font-weight:400;font-size:.85rem;margin-inline-start:6px}
+.add{margin-top:8px;border:0;border-radius:12px;background:var(--chip);padding:8px;font-weight:700;color:var(--brand)}
+.add:hover{background:var(--brand);color:var(--bg)}
+.none{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+dialog{margin:0;inset:0 auto 0 0;height:100%;max-height:none;width:min(430px,100%);border:0;padding:0;background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(10,8,30,.55)}
+.sheet{display:flex;flex-direction:column;height:100%}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.sh h2{margin:0;font-size:1.15rem}
+.x{border:0;background:var(--chip);border-radius:50%;width:34px;height:34px}
+.rows{flex:1;overflow:auto;padding:8px 20px}
+.row{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .t{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:1.8rem;background:linear-gradient(135deg,hsl(var(--h) 85% var(--a)),hsl(calc(var(--h) + 35) 85% var(--b)))}
+.row small{color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:2px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--chip)}
+.foot{padding:16px 20px;border-top:1px solid var(--line);display:grid;gap:8px}
+.ln{display:flex;justify-content:space-between;font-size:.92rem;color:var(--muted)}
+.ln.tot{color:var(--ink);font-weight:900;font-size:1.1rem}
+.cp{display:flex;gap:8px}
+.cp input,.f input,.f textarea{flex:1;width:100%;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+.main{border:0;border-radius:14px;background:linear-gradient(90deg,var(--brand),var(--pop));color:#fff;padding:12px;font-weight:700}
+.main:disabled{opacity:.45;cursor:not-allowed}
+.f{padding:16px 20px;display:grid;gap:10px;overflow:auto}
+.f label{font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.er{color:var(--pop);font-size:.82rem;min-height:1.2em}
+.done{padding:40px 24px;text-align:center;display:grid;gap:10px;justify-items:center}
+.done .ok{font-size:3.5rem}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+#toast.on{opacity:1}
+footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <span class="logo">ویترین</span>
+  <input id="q" type="search" placeholder="جست‌وجوی محصول..." aria-label="جست‌وجو">
+  <button class="cartbtn" id="open" aria-label="سبد خرید">سبد خرید<b id="cnt">0</b></button>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>لوازم دیجیتالی که کار را راحت‌تر می‌کنند</h1>
+    <p>نسخه نمایشی یک فروشگاه اینترنتی. محصول را به سبد اضافه کن، کد <b>HELLO10</b> را امتحان کن و خرید را تا آخر ادامه بده. پرداخت واقعی انجام نمی‌شود.</p>
+  </section>
+  <div class="tools" id="cats" role="group" aria-label="دسته‌بندی"></div>
+  <div class="tools"><span class="note" id="info" style="color:var(--muted)"></span>
+    <select id="sort" aria-label="مرتب‌سازی"><option value="d">پیش‌فرض</option><option value="lo">ارزان‌ترین</option><option value="hi">گران‌ترین</option><option value="off">بیشترین تخفیف</option></select></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>پروژه نمایشی ویترین؛ بدون بک‌اند و بدون پرداخت واقعی</footer>
+
+<dialog id="sheet" aria-label="سبد خرید">
+  <div class="sheet" id="vCart">
+    <div class="sh"><h2>سبد خرید</h2><button class="x" data-close aria-label="بستن">✕</button></div>
+    <div class="rows" id="rows"></div>
+    <div class="foot">
+      <div class="cp"><input id="code" placeholder="کد تخفیف" aria-label="کد تخفیف"><button class="chip" id="apply">اعمال</button></div>
+      <div class="er" id="cerr" role="status"></div>
+      <div class="ln"><span>جمع کالاها</span><span id="sub"></span></div>
+      <div class="ln"><span>تخفیف</span><span id="dis"></span></div>
+      <div class="ln"><span>هزینه ارسال</span><span id="ship"></span></div>
+      <div class="ln tot"><span>مبلغ قابل پرداخت</span><span id="tot"></span></div>
+      <button class="main" id="go">ادامه و ثبت سفارش</button>
+    </div>
+  </div>
+  <div class="sheet" id="vForm" hidden>
+    <div class="sh"><h2>اطلاعات ارسال</h2><button class="x" data-close aria-label="بستن">✕</button></div>
+    <div class="f" id="form">
+      <label>نام و نام خانوادگی<input id="fn" autocomplete="name"><span class="er" id="e1"></span></label>
+      <label>شماره موبایل<input id="fp" inputmode="numeric" autocomplete="tel" placeholder="09123456789"><span class="er" id="e2"></span></label>
+      <label>آدرس کامل<textarea id="fa" rows="3"></textarea><span class="er" id="e3"></span></label>
+      <div class="ln tot"><span>مبلغ قابل پرداخت</span><span id="tot2"></span></div>
+      <button class="main" id="pay">ثبت سفارش (نمایشی)</button>
+      <button class="chip" id="back">بازگشت به سبد</button>
+    </div>
+  </div>
+  <div class="sheet" id="vDone" hidden>
+    <div class="sh"><h2>سفارش ثبت شد</h2><button class="x" data-close aria-label="بستن">✕</button></div>
+    <div class="done"><div class="ok">🎉</div><h3 id="dn" style="margin:0"></h3><p style="margin:0;color:var(--muted)">کد پیگیری سفارش:</p><b id="dc" style="font-size:1.4rem;direction:ltr"></b><p style="color:var(--muted);font-size:.85rem">این یک نسخه نمایشی است و سفارش واقعی ثبت نشده.</p><button class="main" data-close>ادامه خرید</button></div>
+  </div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const P=[
+{id:1,n:"هدفون بی‌سیم نویزکنسلینگ",c:"صوتی",p:3490000,o:4200000,e:"🎧",h:260,d:"بلوتوث ۵٫۳، ۳۰ ساعت شارژدهی"},
+{id:2,n:"کیبورد مکانیکال ۷۵٪",c:"کامپیوتر",p:2890000,o:0,e:"⌨️",h:200,d:"سوییچ قرمز، بدنه آلومینیومی"},
+{id:3,n:"ماوس بی‌سیم ارگونومیک",c:"کامپیوتر",p:890000,o:1100000,e:"🖱️",h:330,d:"سنسور ۱۶ هزار DPI"},
+{id:4,n:"ساعت هوشمند اسپرت",c:"پوشیدنی",p:2450000,o:0,e:"⌚",h:160,d:"ضدآب، پایش خواب و ضربان"},
+{id:5,n:"پاوربانک ۲۰۰۰۰ میلی‌آمپر",c:"لوازم جانبی",p:1190000,o:1390000,e:"🔋",h:30,d:"شارژ سریع ۶۵ وات"},
+{id:6,n:"اسپیکر بلوتوثی ضدآب",c:"صوتی",p:1650000,o:0,e:"🔊",h:290,d:"۱۲ ساعت پخش، IPX7"},
+{id:7,n:"وب‌کم فول‌اچ‌دی",c:"کامپیوتر",p:1290000,o:1550000,e:"📷",h:210,d:"میکروفون دوکاناله"},
+{id:8,n:"حافظه SSD اکسترنال ۱ ترابایت",c:"لوازم جانبی",p:3790000,o:0,e:"💾",h:180,d:"سرعت تا ۱۰۵۰ مگابایت بر ثانیه"},
+{id:9,n:"کوله‌پشتی لپ‌تاپ ضدآب",c:"پوشیدنی",p:1150000,o:0,e:"🎒",h:20,d:"تا ۱۶ اینچ، درگاه USB"},
+{id:10,n:"چراغ مطالعه هوشمند",c:"لوازم جانبی",p:720000,o:890000,e:"💡",h:50,d:"سه دمای رنگی، شارژی"},
+{id:11,n:"کابل شارژ سریع تایپ‌سی",c:"لوازم جانبی",p:190000,o:0,e:"🔌",h:140,d:"۲ متر، ۱۰۰ وات"},
+{id:12,n:"پایه نگهدارنده مانیتور",c:"کامپیوتر",p:1390000,o:0,e:"🖥️",h:240,d:"قابل تنظیم ارتفاع"}];
+const $=id=>document.getElementById(id),nf=new Intl.NumberFormat("fa-IR"),T=n=>nf.format(n)+" تومان";
+const FREE=2000000,SHIP=80000,CODES={HELLO10:.1};
+let cart={},coupon="",cat="همه",term="";
+try{const s=JSON.parse(localStorage.getItem("vitrin:v1"));if(s){cart=s.cart||{};coupon=s.coupon||""}}catch(e){}
+const save=()=>{try{localStorage.setItem("vitrin:v1",JSON.stringify({cart,coupon}))}catch(e){}};
+const find=id=>P.find(p=>p.id===+id);
+function totals(){
+  const sub=Object.entries(cart).reduce((s,[id,q])=>s+find(id).p*q,0);
+  const dis=Math.round(sub*(CODES[coupon]||0)),after=sub-dis;
+  const ship=sub===0?0:after>=FREE?0:SHIP;
+  return{sub,dis,ship,tot:after+ship};
+}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove("on"),1800)}
+function renderCats(){
+  const cs=["همه",...new Set(P.map(p=>p.c))];
+  $("cats").replaceChildren(...cs.map(c=>{const b=document.createElement("button");b.className="chip";b.textContent=c;b.setAttribute("aria-pressed",c===cat);b.onclick=()=>{cat=c;renderCats();renderGrid()};return b}));
+}
+function renderGrid(){
+  let l=P.filter(p=>(cat==="همه"||p.c===cat)&&p.n.includes(term.trim()));
+  const s=$("sort").value,pc=p=>p.o?(p.o-p.p)/p.o:0;
+  if(s==="lo")l.sort((a,b)=>a.p-b.p);else if(s==="hi")l.sort((a,b)=>b.p-a.p);else if(s==="off")l.sort((a,b)=>pc(b)-pc(a));
+  $("info").textContent=nf.format(l.length)+" محصول";
+  $("grid").innerHTML=l.length?l.map(p=>`<article class="card"><div class="art" style="--h:${p.h}" aria-hidden="true">${p.e}${p.o?`<span class="off">٪${nf.format(Math.round(pc(p)*100))} تخفیف</span>`:""}</div><div class="body"><h3>${p.n}</h3><p>${p.d}</p><div class="price">${T(p.p)}${p.o?`<s>${nf.format(p.o)}</s>`:""}</div><button class="add" data-add="${p.id}">افزودن به سبد</button></div></article>`).join(""):`<div class="none">محصولی پیدا نشد.</div>`;
+}
+function renderCart(){
+  const ids=Object.keys(cart),n=ids.reduce((s,i)=>s+cart[i],0),t=totals();
+  $("cnt").textContent=nf.format(n);
+  $("rows").innerHTML=ids.length?ids.map(id=>{const p=find(id);return`<div class="row"><div class="t" style="--h:${p.h}">${p.e}</div><div><div>${p.n}</div><small>${T(p.p)}</small><div class="qty"><button data-q="${id}" data-d="-1" aria-label="کم کردن">−</button><span>${nf.format(cart[id])}</span><button data-q="${id}" data-d="1" aria-label="زیاد کردن">+</button></div></div><button class="x" data-rm="${id}" aria-label="حذف ${p.n}">🗑</button></div>`}).join(""):`<div class="none">سبد خرید خالی است.</div>`;
+  $("sub").textContent=T(t.sub);$("dis").textContent=t.dis?"− "+T(t.dis):"۰";
+  $("ship").textContent=t.sub===0?"۰":t.ship?T(t.ship):"رایگان";
+  $("tot").textContent=T(t.tot);$("tot2").textContent=T(t.tot);
+  $("go").disabled=!ids.length;$("code").value=coupon;save();
+}
+function view(v){["vCart","vForm","vDone"].forEach(x=>$(x).hidden=x!==v)}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]");
+  if(a){const id=a.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();toast(find(id).n+" به سبد اضافه شد");return}
+  const q=e.target.closest("[data-q]");
+  if(q){const id=q.dataset.q;cart[id]+=+q.dataset.d;if(cart[id]<=0)delete cart[id];renderCart();return}
+  const r=e.target.closest("[data-rm]");
+  if(r){delete cart[r.dataset.rm];renderCart();return}
+  if(e.target.closest("[data-close]"))$("sheet").close();
+});
+$("open").onclick=()=>{view("vCart");$("sheet").showModal()};
+$("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))$("sheet").close()});
+$("q").oninput=e=>{term=e.target.value;renderGrid()};
+$("sort").onchange=renderGrid;
+$("apply").onclick=()=>{
+  const c=$("code").value.trim().toUpperCase();
+  if(!c){coupon="";$("cerr").textContent="";renderCart();return}
+  if(CODES[c]){coupon=c;$("cerr").textContent="کد تخفیف اعمال شد.";$("cerr").style.color="var(--brand)"}
+  else{coupon="";$("cerr").textContent="کد تخفیف معتبر نیست.";$("cerr").style.color="var(--pop)"}
+  renderCart();
+};
+$("go").onclick=()=>view("vForm");
+$("back").onclick=()=>view("vCart");
+const dig=s=>s.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+$("pay").onclick=()=>{
+  const n=$("fn").value.trim(),p=dig($("fp").value.trim()),a=$("fa").value.trim();
+  $("e1").textContent=n.length<3?"نام را کامل وارد کن.":"";
+  $("e2").textContent=/^09\d{9}$/.test(p)?"":"شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود.";
+  $("e3").textContent=a.length<10?"آدرس را کامل‌تر وارد کن.":"";
+  if(document.querySelectorAll(".f .er:not(:empty)").length)return;
+  $("dn").textContent=n+"، ممنون از خریدت!";
+  $("dc").textContent="VT-"+Math.random().toString(36).slice(2,8).toUpperCase();
+  cart={};coupon="";renderCart();view("vDone");
+};
+renderCats();renderGrid();renderCart();
+</script>
+</body>
+</html>
